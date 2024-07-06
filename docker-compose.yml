@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  # Backend
+  server:
+    build: ./server
+    container_name: server
+    ports:
+      - "3001:3001"
+    environment:
+      - MONGO_DB_URL= mongodb+srv://KishoreNandhan:manager@cluster0.1vg6qh1.mongodb.net/?retryWrites=true&w=majority
+
+  # Frontend
+  client:
+    build: ./client
+    container_name: client
+    ports:
+      - "3000:80"
